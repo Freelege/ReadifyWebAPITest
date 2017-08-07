@@ -23,7 +23,7 @@ namespace ReadifyWebAPITest.Controllers
                 if (number < 0)
                     throw new ArgumentOutOfRangeException();
                 else
-                    return Ok<long>(GetFibonacci(number));   //简单类型直接用Ok<>()即可
+                    return Ok<long>(GetFibonacci(number));   //For simple types just use Ok<>() is enough.
                    // return Json<long>(GetFibonacci(number));
             }
             catch (Exception ex) when (ex is FormatException 
