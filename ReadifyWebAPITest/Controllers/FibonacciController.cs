@@ -20,6 +20,7 @@ namespace ReadifyWebAPITest.Controllers
             try
             {
                 long number = Int64.Parse(n);  //Firstly need to convert string parameter to long integer
+                             
                 if (number < 0)
                     throw new ArgumentOutOfRangeException();
                 else
@@ -31,6 +32,7 @@ namespace ReadifyWebAPITest.Controllers
                                         || ex is ArgumentOutOfRangeException
                                         || ex is ArgumentNullException)
             {
+                //return StatusCode(HttpStatusCode.BadRequest);
                 var resp = new HttpResponseMessage(HttpStatusCode.BadRequest)
                 {
                     Content = new StringContent("The request is invalid.", Encoding.UTF8, "application/json"),
@@ -46,7 +48,7 @@ namespace ReadifyWebAPITest.Controllers
         [NonAction]
         private long GetFibonacci(long n)
         {
-            if (n == 0)   //When the input is 0, return 0. (Some guys think 0 shouldn't be accepted.)
+            if (n == 0)   //When the input is 0, return 0. 
                 return 0;
             else if (n == 1 || n == 2)
                 return 1;
